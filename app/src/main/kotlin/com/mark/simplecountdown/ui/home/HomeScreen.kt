@@ -286,12 +286,9 @@ fun HomeScreen(
     }
     if (showSettings) {
         SettingsDialog(
-            initialSettings = uiState.settings,
+            settings = uiState.settings,
             onDismiss = { showSettings = false },
-            onConfirm = {
-                showSettings = false
-                onSaveSettings(it)
-            },
+            onSettingsChange = onSaveSettings,
         )
     }
     deleteTarget?.let { preset ->

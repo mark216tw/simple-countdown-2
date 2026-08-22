@@ -9,6 +9,7 @@ import com.mark.simplecountdown.model.TimerPreset
 import com.mark.simplecountdown.model.TimerSettings
 import com.mark.simplecountdown.timer.TimerRepository
 import java.util.UUID
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -23,14 +24,20 @@ class AppViewModel(application: Application) : AndroidViewModel(application) {
     private val dataRepository = AppDataRepository(application)
     private val timerRepository = TimerRepository(application)
     private val timer = MutableStateFlow(timerRepository.state())
+    private val settingsOverride = MutableStateFlow<TimerSettings?>(null)
+    private val settingsUpdates = Channel<TimerSettings>(Channel.CONFLATED)
     private val _messages = MutableSharedFlow<String>(extraBufferCapacity = 4)
     val messages = _messages.asSharedFlow()
 
-    val uiState = combine(dataRepository.data, timer) { stored, timerSnapshot ->
+    val uiState = combine(
+        dataRepository.data,
+        timer,
+        settingsOverride,
+    ) { stored, timerSnapshot, override ->
         AppUiState(
             presets = stored.presets,
             lastCustomTimer = stored.lastCustomTimer,
-            settings = stored.settings,
+            settings = override ?: stored.settings,
             timer = timerSnapshot,
             initialized = true,
         )
@@ -46,6 +53,15 @@ class AppViewModel(application: Application) : AndroidViewModel(application) {
             while (isActive) {
                 refreshTimer()
                 delay(500)
+            }
+        }
+        viewModelScope.launch {
+            for (settings in settingsUpdates) {
+                runCatching {
+                    dataRepository.saveSettings(settings)
+                    timerRepository.updateSettings(settings)
+                    refreshTimer()
+                }.onFailure { _messages.emit("無法儲存設定。") }
             }
         }
     }
@@ -91,12 +107,9 @@ class AppViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun saveSettings(settings: TimerSettings) {
-        viewModelScope.launch {
-            runCatching {
-                dataRepository.saveSettings(settings)
-                timerRepository.updateSettings(settings)
-                refreshTimer()
-            }.onFailure { _messages.emit("無法儲存設定。") }
+        settingsOverride.value = settings
+        if (!settingsUpdates.trySend(settings).isSuccess) {
+            _messages.tryEmit("無法儲存設定。")
         }
     }
 

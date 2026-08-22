@@ -58,7 +58,9 @@ SharedPreferences 檔名：`native_timer_state_v1`
 Inactive -> Running <-> Paused -> Ringing -> Completed
 ```
 
-若關閉完成提示音，`Running` 會直接進入 `Completed`。
+若鈴響時間選擇「無聲」，`Running` 會直接進入 `Completed`。
+
+六種 App 主題色與深色模式都是 `TimerSettings` 的一部分。ViewModel 先以記憶體 override 更新 `AppUiState`，再寫入 DataStore，因此 Compose 主題與系統導覽列會在點擊後立即重組。
 
 ## 前景服務
 

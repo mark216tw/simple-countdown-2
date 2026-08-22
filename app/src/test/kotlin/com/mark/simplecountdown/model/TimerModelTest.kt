@@ -37,11 +37,16 @@ class TimerModelTest {
 
     @Test
     fun `alarm duration options include supported values`() {
-        assertEquals(listOf(60L, 300L, 600L, 900L, 1200L, 1500L, -1L), TimerSettings.alarmDurationOptions)
+        assertEquals(listOf(0L, 10L, 30L, 60L, 300L, -1L), TimerSettings.alarmDurationOptions)
     }
 
     @Test
     fun `preset editor offers twelve colors`() {
         assertEquals(12, TimerPreset.colors.size)
+    }
+
+    @Test
+    fun `app offers six theme colors`() {
+        assertEquals(6, AppThemeColor.entries.size)
     }
 }

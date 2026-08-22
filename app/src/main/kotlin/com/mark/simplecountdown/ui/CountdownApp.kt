@@ -83,7 +83,10 @@ fun CountdownApp(viewModel: AppViewModel = viewModel()) {
         onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
     }
 
-    SimpleCountdownTheme(darkTheme = uiState.settings.darkMode) {
+    SimpleCountdownTheme(
+        darkTheme = uiState.settings.darkMode,
+        themeColor = uiState.settings.themeColor,
+    ) {
         if (!uiState.initialized) {
             Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                 CircularProgressIndicator()

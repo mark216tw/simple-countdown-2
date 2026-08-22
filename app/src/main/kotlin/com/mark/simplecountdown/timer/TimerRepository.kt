@@ -18,7 +18,7 @@ class TimerRepository(context: Context) {
             name = preset.name,
             durationSeconds = preset.durationSeconds,
             colorValue = preset.colorValue,
-            soundEnabled = settings.soundEnabled,
+            soundEnabled = settings.alarmDurationSeconds != 0L,
             tickSoundEnabled = settings.tickSoundEnabled,
             keepScreenOn = settings.keepScreenOn,
             alarmDurationSeconds = settings.alarmDurationSeconds,
@@ -69,7 +69,7 @@ class TimerRepository(context: Context) {
         TimerStateStore.updateSettings(
             context = appContext,
             alarmDurationSeconds = settings.alarmDurationSeconds,
-            soundEnabled = settings.soundEnabled,
+            soundEnabled = settings.alarmDurationSeconds != 0L,
             tickSoundEnabled = settings.tickSoundEnabled,
             keepScreenOn = settings.keepScreenOn,
         )

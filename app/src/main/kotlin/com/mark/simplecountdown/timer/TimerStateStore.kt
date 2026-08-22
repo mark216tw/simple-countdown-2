@@ -301,6 +301,8 @@ object TimerStateStore {
         return Settings.Global.getInt(context.contentResolver, Settings.Global.BOOT_COUNT, -1)
     }
 
-    private fun normalizeAlarmDuration(seconds: Long): Long =
-        if (seconds == -1L) -1L else seconds.coerceIn(60L, 1500L)
+    private fun normalizeAlarmDuration(seconds: Long): Long = when (seconds) {
+        -1L, 0L, 10L, 30L, 60L, 300L -> seconds
+        else -> 60L
+    }
 }
