@@ -70,6 +70,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
+import androidx.compose.ui.res.stringResource
+import com.mark.simplecountdown.R
 import com.mark.simplecountdown.model.AppUiState
 import com.mark.simplecountdown.model.TimerPreset
 import com.mark.simplecountdown.model.TimerSettings
@@ -160,7 +162,7 @@ fun HomeScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("簡單倒數2") },
+                title = { Text(stringResource(R.string.app_name)) },
                 actions = {
                     IconButton(onClick = { editorRequest = EditorRequest(null, false) }) {
                         Icon(Icons.Outlined.Add, contentDescription = "新增預設")

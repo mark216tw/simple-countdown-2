@@ -4,6 +4,13 @@
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-08-23
+
+### Changed
+
+- App 顯示名稱由「簡單倒數2」調整為「簡單倒數」。
+- Launcher icon 改為活潑漸層背景的原創沙漏圖示，並支援 Android 13 themed icon。
+
 ## [1.1.0] - 2026-08-22
 
 ### Changed
@@ -36,6 +43,7 @@
 - 完成提示音、答答聲、常亮、深色模式與動態色彩設定。
 - DataStore 持久化、單元測試、Compose 啟動測試與 Android lint。
 
-[Unreleased]: https://github.com/mark216tw/simple-countdown-2/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/mark216tw/simple-countdown-2/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/mark216tw/simple-countdown-2/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/mark216tw/simple-countdown-2/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/mark216tw/simple-countdown-2/tree/v1.0.0

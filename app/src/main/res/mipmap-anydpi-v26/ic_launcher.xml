@@ -2,6 +2,6 @@
 <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="MonochromeLauncherIcon">
-    <background android:drawable="@color/icon_background" />
-    <foreground android:drawable="@drawable/ic_timer_foreground" />
+    <background android:drawable="@drawable/ic_launcher_background" />
+    <foreground android:drawable="@drawable/ic_hourglass_foreground" />
 </adaptive-icon>

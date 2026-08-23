@@ -1,8 +1,8 @@
-# 簡單倒數2
+# 簡單倒數
 
 以 Kotlin、Jetpack Compose 和 Material 3 實作的 Android 倒數計時器。
 
-- App 名稱：簡單倒數2
+- App 名稱：簡單倒數
 - Package ID：`com.example.simplecountdown`
 - 支援版本：Android 7.0（API 24）以上
 

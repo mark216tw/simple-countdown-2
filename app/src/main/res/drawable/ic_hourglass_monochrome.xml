@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- The complete foreground stays inside the centered 66 x 66 dp safe zone. -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M26,21H82C85,21 87,23 87,26C87,29 85,31 82,31H26C23,31 21,29 21,26C21,23 23,21 26,21ZM26,77H82C85,77 87,79 87,82C87,85 85,87 82,87H26C23,87 21,85 21,82C21,79 23,77 26,77Z" />
+    <path
+        android:fillColor="@android:color/transparent"
+        android:pathData="M30,30C30,43 38,49 49,54C38,60 30,66 30,78M78,30C78,43 70,49 59,54C70,60 78,66 78,78"
+        android:strokeColor="#000000"
+        android:strokeLineCap="round"
+        android:strokeWidth="7" />
+    <path
+        android:fillColor="#000000"
+        android:pathData="M37,35H71C68,43 62,49 54,53C46,49 40,43 37,35ZM54,58C62,62 68,67 71,73H37C40,67 46,62 54,58ZM52.5,50H55.5V63H52.5Z" />
+</vector>
