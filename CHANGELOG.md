@@ -4,6 +4,13 @@
 
 ## [Unreleased]
 
+## [1.3.0] - 2026-08-28
+
+### Changed
+
+- 首頁上方的進行中倒數資訊改用該倒數的識別色顯示。
+- 倒數識別色色盤由 12 色增加至 24 色。
+
 ## [1.2.0] - 2026-08-23
 
 ### Changed
@@ -43,7 +50,8 @@
 - 完成提示音、答答聲、常亮、深色模式與動態色彩設定。
 - DataStore 持久化、單元測試、Compose 啟動測試與 Android lint。
 
-[Unreleased]: https://github.com/mark216tw/simple-countdown-2/compare/v1.2.0...HEAD
+[Unreleased]: https://github.com/mark216tw/simple-countdown-2/compare/v1.3.0...HEAD
+[1.3.0]: https://github.com/mark216tw/simple-countdown-2/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/mark216tw/simple-countdown-2/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/mark216tw/simple-countdown-2/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/mark216tw/simple-countdown-2/tree/v1.0.0

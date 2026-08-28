@@ -135,6 +135,18 @@ fun PresetEditorDialog(
                     "天藍色",
                     "靛藍色",
                     "灰色",
+                    "深紅色",
+                    "琥珀色",
+                    "萊姆綠",
+                    "翡翠綠",
+                    "湖水藍",
+                    "深藍色",
+                    "薰衣草紫",
+                    "洋紅色",
+                    "玫瑰色",
+                    "陶土色",
+                    "金色",
+                    "炭灰色",
                 )
                 Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
                     TimerPreset.colors.chunked(4).forEachIndexed { rowIndex, rowColors ->

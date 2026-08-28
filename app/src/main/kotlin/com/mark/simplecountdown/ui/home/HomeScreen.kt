@@ -208,6 +208,7 @@ fun HomeScreen(
                 ActiveTimerCard(
                     name = uiState.timer.name,
                     remainingSeconds = uiState.timer.remainingSeconds,
+                    colorValue = uiState.timer.colorValue,
                     paused = uiState.timer.paused,
                     onClick = onOpenTimer,
                     modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp),
@@ -457,25 +458,37 @@ private fun DragHandle(
 private fun ActiveTimerCard(
     name: String,
     remainingSeconds: Long,
+    colorValue: Int,
     paused: Boolean,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    val color = Color(colorValue)
+    val foreground = if (color.luminance() < 0.5f) Color.White else Color.Black
+
     Card(
         onClick = onClick,
         modifier = modifier.fillMaxWidth(),
         shape = RoundedCornerShape(24.dp),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer),
+        colors = CardDefaults.cardColors(containerColor = color),
     ) {
         ListItem(
-            leadingContent = { Icon(Icons.Outlined.HourglassTop, contentDescription = null) },
-            headlineContent = { Text(name) },
-            supportingContent = { Text(if (paused) "已暫停" else "倒數進行中") },
+            leadingContent = {
+                Icon(Icons.Outlined.HourglassTop, contentDescription = null, tint = foreground)
+            },
+            headlineContent = { Text(name, color = foreground) },
+            supportingContent = {
+                Text(
+                    if (paused) "已暫停" else "倒數進行中",
+                    color = foreground.copy(alpha = 0.8f),
+                )
+            },
             trailingContent = {
                 Text(
                     formatDuration(remainingSeconds),
                     style = MaterialTheme.typography.titleLarge,
                     fontWeight = FontWeight.Bold,
+                    color = foreground,
                 )
             },
             colors = androidx.compose.material3.ListItemDefaults.colors(

@@ -29,11 +29,11 @@ Repository 中的 `apk/simple-countdown-2-debug.apk` 使用 Android Debug 簽章
 正式 APK 通過驗證後，可建立 tag 與 GitHub Release：
 
 ```powershell
-git tag v1.2.0
-git push origin v1.2.0
-gh release create v1.2.0 path\to\signed-release.apk --title "簡單倒數 v1.2.0" --notes-file docs\release-notes-v1.2.0.md
+git tag v1.3.0
+git push origin v1.3.0
+gh release create v1.3.0 path\to\signed-release.apk --title "簡單倒數 v1.3.0" --notes-file docs\release-notes-v1.3.0.md
 ```
 
-Release 附件應使用清楚名稱，例如 `simple-countdown-v1.2.0.apk`，並在說明中標示最低 Android 版本、簽章類型與重要變更。
+Release 附件應使用清楚名稱，例如 `simple-countdown-v1.3.0.apk`，並在說明中標示最低 Android 版本、簽章類型與重要變更。
 
 若附件仍使用 Debug 簽章，必須加入 `--prerelease`，並在標題、檔名及 Release notes 清楚標示為測試版。

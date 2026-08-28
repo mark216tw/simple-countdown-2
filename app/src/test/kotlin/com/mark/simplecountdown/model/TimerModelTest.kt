@@ -41,8 +41,9 @@ class TimerModelTest {
     }
 
     @Test
-    fun `preset editor offers twelve colors`() {
-        assertEquals(12, TimerPreset.colors.size)
+    fun `preset editor offers twenty four unique colors`() {
+        assertEquals(24, TimerPreset.colors.size)
+        assertEquals(TimerPreset.colors.size, TimerPreset.colors.distinct().size)
     }
 
     @Test
