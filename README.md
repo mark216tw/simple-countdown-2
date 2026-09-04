@@ -18,11 +18,14 @@
 
 ## 安裝 APK
 
-測試用 Debug APK：[`apk/simple-countdown-2-debug.apk`](apk/simple-countdown-2-debug.apk)
+測試用 APK：
+
+- Debug：[`apk/simple-countdown-2-debug.apk`](apk/simple-countdown-2-debug.apk)
+- Prerelease（R8 與資源壓縮、Debug 金鑰簽署）：[`apk/simple-countdown-2-prerelease.apk`](apk/simple-countdown-2-prerelease.apk)
 
 各版本附件可從 [GitHub Releases](https://github.com/mark216tw/simple-countdown-2/releases) 下載。
 
-此 APK 使用 Android Debug 簽章，只適合測試，不應當作正式商店發布版本。安裝前可能需要允許瀏覽器或檔案管理員安裝未知來源 App。
+上述 APK 使用 Android Debug 簽章，只適合測試，不應當作正式商店發布版本。安裝前可能需要允許瀏覽器或檔案管理員安裝未知來源 App。
 
 ## 技術
 

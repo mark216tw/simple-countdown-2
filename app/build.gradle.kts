@@ -27,6 +27,13 @@ android {
                 "proguard-rules.pro",
             )
         }
+        create("prerelease") {
+            initWith(getByName("release"))
+            isMinifyEnabled = true
+            isShrinkResources = true
+            signingConfig = signingConfigs.getByName("debug")
+            matchingFallbacks += listOf("release")
+        }
     }
 
     compileOptions {

@@ -16,6 +16,6 @@
 
 ## APK 簽章
 
-附件 `simple-countdown-v1.3.0-debug.apk` 使用 Android Debug 簽章，只供測試與功能驗收，不適合提交應用程式商店。
+附件 `simple-countdown-v1.3.0-prerelease.apk` 使用 `prerelease` Build Type 建置，已啟用 R8 程式碼壓縮與資源壓縮，並使用 Android Debug 金鑰簽署。此 APK 只供測試與功能驗收，不適合提交應用程式商店。
 
-SHA-256：`7F7243DD68A5EE05F2161AB626351D23077D29BE257BC0183391DF9A078ED74A`
+SHA-256：`4FEEFB962143A102F3C7E07775D1172ACBE4851268682CB4A033CAE714D21EF6`

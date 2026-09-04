@@ -2,7 +2,7 @@
 
 ## 目前 APK 狀態
 
-Repository 中的 `apk/simple-countdown-2-debug.apk` 使用 Android Debug 簽章，只供測試與功能驗收，不適合正式發布或提交商店。
+Repository 中的 `apk/simple-countdown-2-debug.apk` 與 `apk/simple-countdown-2-prerelease.apk` 使用 Android Debug 簽章，只供測試與功能驗收，不適合正式發布或提交商店。Prerelease APK 使用 `prerelease` Build Type，並啟用 R8 與資源壓縮。
 
 ## 發布前檢查
 
@@ -12,6 +12,7 @@ Repository 中的 `apk/simple-countdown-2-debug.apk` 使用 Android Debug 簽章
 
 ```powershell
 .\gradlew.bat clean testDebugUnitTest lintDebug assembleDebug assembleDebugAndroidTest
+.\gradlew.bat testPrereleaseUnitTest lintPrerelease assemblePrerelease
 ```
 
 4. 在 Android 13、14、15 以上實機測試通知、前景服務、鎖屏與重新開機。
@@ -36,4 +37,4 @@ gh release create v1.3.0 path\to\signed-release.apk --title "簡單倒數 v1.3.0
 
 Release 附件應使用清楚名稱，例如 `simple-countdown-v1.3.0.apk`，並在說明中標示最低 Android 版本、簽章類型與重要變更。
 
-若附件仍使用 Debug 簽章，必須加入 `--prerelease`，並在標題、檔名及 Release notes 清楚標示為測試版。
+若附件仍使用 Debug 簽章，必須加入 `--prerelease`，並在標題、檔名及 Release notes 清楚標示為測試版。上傳測試發行版本時應使用 `prerelease` Build Type 的 APK，而非 `debug` Build Type。
